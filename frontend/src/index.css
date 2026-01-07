@@ -1,0 +1,215 @@
+@import "./styles/theme.css";
+
+/* =========================
+   GLOBAL RESET
+========================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* =========================
+   CUSTOM SCROLLBAR
+   Kevotalia Technology
+========================= */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--highlight-1) var(--bg);
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--highlight-1),
+    var(--highlight-3)
+  );
+  border-radius: 8px;
+  border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    var(--highlight-2),
+    var(--highlight-1)
+  );
+}
+
+/* Optional: corner (for horizontal + vertical scroll) */
+::-webkit-scrollbar-corner {
+  background: var(--bg);
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Lora", serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+h1,
+h2,
+h3 {
+  font-family: "Chivo", sans-serif;
+  color: var(--heading-main);
+  line-height: 1.2;
+}
+
+h4,
+h5,
+h6 {
+  font-family: "Lora", serif;
+  color: var(--heading-sub);
+}
+
+p {
+  color: var(--text);
+  font-size: 16px;
+}
+
+/* =========================
+   LINKS
+========================= */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   LAYOUT HELPERS
+========================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================
+   PAGE SECTIONS
+========================= */
+section {
+  padding: 80px 0;
+}
+
+.page-header {
+  padding: 80px 0 40px;
+}
+
+.page-header h1 {
+  font-size: 42px;
+}
+
+.page-header p {
+  font-size: 18px;
+  max-width: 720px;
+  margin-top: 12px;
+}
+
+/* =========================
+   CARDS
+========================= */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  font-family: "Chivo", sans-serif;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background: var(--highlight-1);
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* =========================
+   FORMS
+========================= */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-family: "Lora", serif;
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 0.6;
+}
+
+/* =========================
+   FOOTER (BASE)
+========================= */
+footer {
+  background: var(--navbar);
+  color: #ffffff;
+}
+
+/* =========================
+   UTILITIES
+========================= */
+.text-center {
+  text-align: center;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.container {
+  max-width: 100vw;
+  margin: auto;
+  padding: 0 24px;
+  margin-bottom: 60px;
+}

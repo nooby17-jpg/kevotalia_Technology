@@ -1,0 +1,26 @@
+.hero {
+  padding: 120px 0 100px;
+  background: var(--bg);
+
+}
+
+[data-theme="light"] .hero {
+  background: #ffffff;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 18px;
+  font-family: "Lora", serif;
+  opacity: 0.85;
+}

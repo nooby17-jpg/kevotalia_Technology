@@ -1,0 +1,37 @@
+/* =========================
+   BRAND SYSTEM – KEVOTALIA
+   ========================= */
+
+/* -------- LIGHT MODE -------- */
+:root {
+  --bg: #f9f9f9;
+  --nav-bg: #00092f;
+
+  --highlight-1: #0c2288;
+  --highlight-2: #e36414;
+  --highlight-3: #293241;
+
+  --heading-main: #0d1321;
+  --heading-sub: #141414;
+  --text: #141414;
+
+  --card: #ffffff;
+  --border: #e5e5e5;
+}
+
+/* -------- DARK MODE -------- */
+[data-theme="dark"] {
+  --bg: #000000;
+  --nav-bg: #000713;
+
+  --highlight-1: #5aa9e6;
+  --highlight-2: #f6bd60;
+  --highlight-3: #3d5a80;
+
+  --heading-main: #ffffff;
+  --heading-sub: #f5f3f4;
+  --text: #f5f3f4;
+
+  --card: #001b2e;
+  --border: #1e3a5f;
+}
