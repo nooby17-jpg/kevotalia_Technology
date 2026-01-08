@@ -1,26 +1,121 @@
 .hero {
-  padding: 120px 0 100px;
-  background: var(--bg);
-
-}
-
-[data-theme="light"] .hero {
-  background: #ffffff;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 120px 20px 80px;
 }
 
 .hero-content {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 24px;
+  max-width: 760px;
+  z-index: 3;
+}
+
+.hero-tag {
+  background: var(--highlight-1);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 18px;
 }
 
 .hero h1 {
-  font-size: 48px;
-  margin-bottom: 12px;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.15;
+  margin-bottom: 18px;
 }
 
 .hero p {
-  font-size: 18px;
-  font-family: "Lora", serif;
+  font-size: clamp(15px, 2vw, 18px);
+  max-width: 620px;
+  margin: auto;
   opacity: 0.85;
+}
+
+.hero-actions {
+  margin-top: 32px;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.primary {
+  background: var(--nav-bg);
+  color: #fff;
+}
+
+.outline {
+  border: 2px solid var(--highlight-2);
+  color: var(--highlight-2);
+}
+
+/* ===== FLOATING SVGs ===== */
+
+.float {
+  position: absolute;
+  width: clamp(80px, 12vw, 150px);
+  opacity: 0.9;
+  animation: float 7s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Desktop placement */
+.f1 { top: 12%; left: 17%; }
+.f2 { bottom: 35%; right: 6%; animation-delay: 2s; }
+.f3 { top: 12%; right: 17%; animation-delay: 4s; }
+.f4 { top: 12%; right: 45%; }
+.f5 { bottom: 10%; right: 12%; animation-delay: 2s; }
+.f6 { top: 40%; left: 6%; animation-delay: 4s; }
+.f7 { top: 75%; left: 46%; }
+.f8 { bottom: 10%; right: 72%; animation-delay: 2s; }
+
+.scroll-arrow {
+  position: absolute;
+  bottom: 20px;
+  width: 36px;
+  font-size: 28px;
+  opacity: 0.8;
+  animation: bounce 2s infinite;
+  color: var(--heading-main);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ===== MOBILE CLEANUP ===== */
+@media (max-width: 768px) {
+  .float {
+    opacity: 0.65;
+  }
+  /* Desktop placement */
+.f1 { top: 32%; left: 12%; }
+.f2 { bottom: 35%; right: 5%; animation-delay: 2s; }
+.f3 { top: 32%; right: 12%; animation-delay: 4s; }
+.f4 { top: 18%; right: 41%; }
+.f5 { bottom: 16%; right: 12%; animation-delay: 2s; }
+.f6 { top: 55%; left: 5%; animation-delay: 4s; }
+.f7 { top: 82%; left: 46%; }
+.f8 { bottom: 16%; right: 72%; animation-delay: 2s; }
 }

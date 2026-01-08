@@ -5,14 +5,18 @@
 /* -------- LIGHT MODE -------- */
 :root {
   --bg: #f9f9f9;
-  --nav-bg: #00092f;
+  --nav-bg: #0e1c5e;
 
-  --highlight-1: #0c2288;
+  --highlight-1: #09249d;
   --highlight-2: #e36414;
   --highlight-3: #293241;
 
   --heading-main: #0d1321;
+  --heading-main1: #ffffff;
+  --heading-main2: #fbfcff;
   --heading-sub: #141414;
+  --heading-sub1: #eeeeee;
+  --heading-sub2: #efefef;
   --text: #141414;
 
   --card: #ffffff;
@@ -22,13 +26,16 @@
 /* -------- DARK MODE -------- */
 [data-theme="dark"] {
   --bg: #000000;
-  --nav-bg: #000713;
+  --nav-bg: #020c1d;
 
-  --highlight-1: #5aa9e6;
+  --highlight-1: #00457a;
   --highlight-2: #f6bd60;
   --highlight-3: #3d5a80;
 
   --heading-main: #ffffff;
+  --heading-main2: #fbfcff;
+  --heading-sub1: #eeeeee;
+  --heading-sub2: #efefef;
   --heading-sub: #f5f3f4;
   --text: #f5f3f4;
 
