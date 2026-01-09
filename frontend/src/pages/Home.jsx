@@ -1,12 +1,19 @@
-import Hero from "../components/Hero";
-import Footer from "../components/Footer";
-import Highlights from "../components/Highlights";
+import Hero from "../components/Detailed_Hero/Hero";
+import Features from "../components/Detailed_Hero/Features";
+import Workflow from "../components/Detailed_Hero/Workflow";
+import Testimonials from "../components/Detailed_Hero/Testimonials";
+import Footer from "../components/Detailed_Hero/Footer";
+
+import "./../styles/hero.css";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Highlights id="section2" />
+      <Features />
+      <Workflow />
+      <Testimonials />
+      <Footer />
     </>
   );
 }

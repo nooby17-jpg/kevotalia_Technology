@@ -9,6 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 /* =========================
    CUSTOM SCROLLBAR
@@ -63,6 +64,7 @@ body {
   font-family: "Lora", serif;
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
+   scroll-behavior: smooth;
 }
 
 /* =========================
@@ -71,7 +73,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: "Chivo", sans-serif;
+  font-family:  "Rethink Sans", sans-serif;
   color: var(--heading-main);
   line-height: 1.2;
 }
@@ -79,11 +81,12 @@ h3 {
 h4,
 h5,
 h6 {
-  font-family: "Lora", serif;
+  font-family: "Giest", sans-serif;
   color: var(--heading-sub);
 }
 
 p {
+  font-family: "Giest", sans-serif !important;
   color: var(--text);
   font-size: 16px;
 }
@@ -92,6 +95,7 @@ p {
    LINKS
 ========================= */
 a {
+  font-family: "Giest", san-serif;
   text-decoration: none;
   color: inherit;
 }

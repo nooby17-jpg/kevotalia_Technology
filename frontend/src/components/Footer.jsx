@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaEnvelope
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import logoLight from "../assets/logo.png";
-import logoDark from "../assets/dark_logo.png";
+import { BiLogoFacebook } from "react-icons/bi";
+import { BsTwitterX } from "react-icons/bs";
+import { ImYoutube2 } from "react-icons/im";
+import { PiInstagramLogoDuotone } from "react-icons/pi";
+import { BiLogoGmail } from "react-icons/bi";
+
+import ll from "../assets/flc.png";
+
 import "./../styles/footer.css";
 
 export default function Footer() {
@@ -64,7 +63,7 @@ export default function Footer() {
       <div className="footer-middle">
         <div className="footer-brand">
           <img
-            src={logoDark}
+            src={ll}
             alt="Kevotalia Technology"
           />
           <h3>Kevotalia Technology</h3>
@@ -77,11 +76,11 @@ export default function Footer() {
         <div className="footer-social">
           <h4>Follow us on</h4>
           <div className="social-icons">
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaInstagram /></a>
-            <a href="#"><FaXTwitter /></a>
-            <a href="#"><FaLinkedinIn /></a>
-            <a href="mailto:contact@kevotalia.com"><FaEnvelope /></a>
+            <a href="#"><BiLogoFacebook  /></a>
+            <a href="#"><BsTwitterX /></a>
+            <a href="#"><ImYoutube2 /></a>
+            <a href="mailto:contact@kevotalia.com"><BiLogoGmail /></a>
+            <a href="#"><PiInstagramLogoDuotone /></a>
           </div>
         </div>
       </div>

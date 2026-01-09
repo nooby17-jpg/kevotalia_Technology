@@ -4,20 +4,23 @@
 
 /* -------- LIGHT MODE -------- */
 :root {
-  --bg: #f9f9f9;
-  --nav-bg: #0e1c5e;
+  --bg: #fdfffd;
+  --nav-bg: #f7f7f7;
 
-  --highlight-1: #09249d;
-  --highlight-2: #e36414;
-  --highlight-3: #293241;
+  --highlight-1: #1eab3f;
+  --highlight-2: #f9ff51ee;
+  --highlight-3: #86fda4;
 
-  --heading-main: #0d1321;
+  --heading-main: #0b120c;
   --heading-main1: #ffffff;
   --heading-main2: #fbfcff;
   --heading-sub: #141414;
   --heading-sub1: #eeeeee;
   --heading-sub2: #efefef;
   --text: #141414;
+  --glass-bg: rgba(195, 232, 244, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: rgba(0, 0, 0, 0.15);
 
   --card: #ffffff;
   --border: #e5e5e5;
@@ -25,12 +28,16 @@
 
 /* -------- DARK MODE -------- */
 [data-theme="dark"] {
-  --bg: #000000;
-  --nav-bg: #020c1d;
+  --bg: #101611;
+  --nav-bg: #001505 ;
 
-  --highlight-1: #00457a;
-  --highlight-2: #f6bd60;
-  --highlight-3: #3d5a80;
+  --glass-bg: rgba(10, 15, 30, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: rgba(0, 0, 0, 0.5);
+
+  --highlight-1: rgb(0, 87, 29);
+  --highlight-2: #e78d04;
+  --highlight-3: #c6bffe;
 
   --heading-main: #ffffff;
   --heading-main2: #fbfcff;
