@@ -3,18 +3,17 @@ export default function Hero() {
     <section className="hero-wrapper">
       <div className="hero-left">
         <h1>
-          Track insights across the web <br />
-          without having to read everything
+          Securing critical environments 
+          with intelligence, precision,<br/> and trust.
         </h1>
-
         <p>
-          You tell Feedly AI what’s important to you and it flags the most
-          important insights from everywhere, including news sites, blogs, and
-          newsletters.
+          Kevotalia Technology offers integrated fire safety, surveillance, access
+          control, and power backup solutions—tailored for enterprises, institutions,
+          and government organizations across India.
         </p>
 
         <div className="hero-buttons">
-          <button className="btn-primary">Services</button>
+          <button className="btn-primary">Get Started</button>
           <button className="btn-secondary">Contact Us</button>
         </div>
       </div>

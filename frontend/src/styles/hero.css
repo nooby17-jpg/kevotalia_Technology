@@ -135,7 +135,7 @@
 .hero-wrapper {
   width: 100%;
   min-height: 100vh;
-  padding: 80px 10%;
+  padding: 80px 8% 80px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -148,8 +148,8 @@
 .hero-wrapper::before {
   content: "";
   position: absolute;
-  top: 30% !important;
-  left: 58% !important;
+  top: 32% !important;
+  left: 59% !important;
   
   background-image: radial-gradient(#09c10d 1px, transparent 1px) !important;
   background-size: 22px 22px;
@@ -159,7 +159,7 @@
 }
 
 .hero-left {
-  max-width: 520px;
+  max-width: 620px;
   z-index: 1;
 }
 
@@ -184,8 +184,8 @@
 }
 
 .btn-primary {
-  background: #2bb24c;
-  color: white;
+  background: var(--highlight-1);
+  color: var(--heading-main1);
   padding: 14px 22px;
   border-radius: 6px;
   border: none;
@@ -194,11 +194,11 @@
 }
 
 .btn-secondary {
-  background: white;
-  color: #333;
+  background: var(--bg);
+  color: var(--heading-main);
   padding: 14px 22px;
   border-radius: 6px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--heading-main);
   font-weight: 600;
   cursor: pointer;
 }
@@ -220,6 +220,8 @@
   display: flex;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  padding-right: 20px;
+
 }
 
 .ui-sidebar {
@@ -261,7 +263,7 @@
 
 .filter {
   background: var(--nav-bg);
-  color: #111111;
+  color: (--heading-sub);
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
@@ -318,7 +320,7 @@
 .mini-title {
   width: 70%;
   height: 10px;
-  background: #e0e0e0;
+  background: var(--heading-sub2);
   border-radius: 6px;
   margin-bottom: 8px;
 }
@@ -326,7 +328,7 @@
 .mini-line {
   width: 50%;
   height: 8px;
-  background: #ededed;
+  background: var(--heading-sub2);
   border-radius: 6px;
 }
 

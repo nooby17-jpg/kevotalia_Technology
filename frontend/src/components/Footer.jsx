@@ -66,9 +66,9 @@ export default function Footer() {
             <h4>Contact</h4>
             <p>
               Shop No.1, Turf View Shopping Complex,<br />
-              Alipore, Kolkata – 700022
+              AJC Bose Road, Alipore<br/> Kolkata – 700022
             </p>
-            <p>contact@kevotalia.com</p>
+            <p>kevotaliatech@gmail.com</p>
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@ export default function Footer() {
             <a href="#"><BiLogoFacebook  /></a>
             <a href="#"><BsTwitterX /></a>
             <a href="#"><ImYoutube2 /></a>
-            <a href="mailto:contact@kevotalia.com"><BiLogoGmail /></a>
+            <a href="mailto:kevotaliatech@gmail.com"><BiLogoGmail /></a>
             <a href="#"><PiInstagramLogoDuotone /></a>
           </div>
         </div>

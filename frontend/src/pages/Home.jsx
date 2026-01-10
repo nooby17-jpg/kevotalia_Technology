@@ -5,7 +5,7 @@ import Testimonials from "../components/Detailed_Hero/Testimonials";
 
 
 import "./../styles/hero.css";
-import "./../styles/about.css";
+import "./../styles/aboutus.css";
 import "./../styles/clients.css";
 export default function Home() {
   return (
