@@ -1,18 +1,19 @@
-import blinkit from './../../assets/blinkit.png'
-import birla from './../../assets/birla-logo.png';
-import cghs from './../../assets/cghs.png';
-import GWB from './../../assets/gwb.png';
-import ESIC from './../../assets/esic.png';
-import IAF from './../../assets/IAF.png';
-import IAI from './../../assets/Indian_Army_insignia.svg.png';
-import IBM from './../../assets/images.png';
-import logoAN from './../../assets/logoAn.png';
-import IAN from './../../assets/IAN.png';
-import nestle from './../../assets/nestle.png';
-import prosure from './../../assets/prosure.jfif';
+import blinkit from './../assets/blinkit.png'
+import birla from './../assets/birla-logo.png';
+import cghs from './../assets/cghs.png';
+import GWB from './../assets/gwb.png';
+import ESIC from './../assets/esic.png';
+import IAF from './../assets/IAF.png';
+import IAI from './../assets/Indian_Army_insignia.svg.png';
+import IBM from './../assets/images.png';
+import logoAN from './../assets/logoAn.png';
+import IAN from './../assets/IAN.png';
+import nestle from './../assets/nestle.png';
+import prosure from './../assets/prosure.jfif';
 import { GiStairsGoal } from "react-icons/gi";
 import { GoSmiley } from "react-icons/go";
 import { LiaBusinessTimeSolid } from "react-icons/lia";
+import "./../styles/workflow.css";
 
 export default function Workflow() {
   return (
@@ -35,8 +36,8 @@ export default function Workflow() {
         <div className="details-col">
           <GiStairsGoal className="s-icon" />
           <div className="details-content">
-            <h2>100+</h2>
-            <p>Projects Completed</p>
+            <h2>500+</h2>
+            <p>Projects Installation</p>
           </div>
         </div>
 
@@ -51,7 +52,7 @@ export default function Workflow() {
         <div className="details-col">
           <LiaBusinessTimeSolid className="s-icon" />
           <div className="details-content">
-            <h2>5+</h2>
+            <h2>10+</h2>
             <p>Years Experience</p>
           </div>
         </div>

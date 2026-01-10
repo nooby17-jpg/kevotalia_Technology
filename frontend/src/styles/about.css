@@ -1,0 +1,162 @@
+.about-page {
+  background: var(--bg);
+  color: var(--text);
+  padding: 70px 5%;
+  margin-top: 50px;
+}
+
+/* Divider */
+.section-divider {
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* HERO */
+.about-hero {
+  text-align: center;
+}
+
+.about-hero h1 {
+  font-size: 42px;
+  color: var(--heading-main);
+  margin-bottom: 12px;
+}
+
+.about-hero p {
+  font-size: 18px;
+  color: var(--heading-sub);
+}
+
+/* Sections */
+.about-section h2 {
+  font-size: 28px;
+  color: var(--heading-main);
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 850px;
+}
+
+/* Two column */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+/* Stats */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  gap: 30px;
+}
+
+.about-stats h3 {
+  font-size: 32px;
+  color: var(--highlight-1);
+}
+
+.about-stats p {
+  font-weight: 600;
+}
+
+/* Services */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.service-card {
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Lists */
+.why-list {
+  padding-left: 18px;
+}
+
+.why-list li {
+  margin-bottom: 10px;
+}
+
+/* Industries */
+.industry-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.industry-chip {
+  padding: 10px 16px;
+  border-radius: 20px;
+  background: var(--highlight-4);
+  color: var(--highlight-3);
+  font-weight: 600;
+}
+
+/* Clients */
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.client-card {
+  padding: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* CTA */
+.about-cta {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.about-cta h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.cta-btn {
+  padding: 14px 28px;
+  border-radius: 6px;
+  border: none;
+  background: var(--highlight-1);
+  color: white;
+  font-weight: 600;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .about-page {
+    padding: 50px 6%;
+  }
+
+  .about-hero h1 {
+    font-size: 30px;
+  }
+}

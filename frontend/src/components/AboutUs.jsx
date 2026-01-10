@@ -1,4 +1,4 @@
-
+import "./../styles/aboutus.css";
 export default function AboutUs() {
   return (
     <section className="aboutUs-wrapper">
