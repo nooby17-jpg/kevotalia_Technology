@@ -14,8 +14,8 @@ export default function Hero() {
         </p>
 
         <div className="hero-buttons">
-          <button className="btn-primary">Get started for free</button>
-          <button className="btn-secondary">Start enterprise trial</button>
+          <button className="btn-primary">Services</button>
+          <button className="btn-secondary">Contact Us</button>
         </div>
       </div>
 

@@ -1,0 +1,275 @@
+
+.Clients{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.brand-slider {
+  width: 100%;
+  overflow: hidden;
+  padding: 30px 0;
+  background: #fff;
+  position: relative;
+}
+
+.brand-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: scrollLeft 35s linear infinite;
+}
+
+.brand-item {
+  flex: 0 0 auto;
+  margin: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-item img {
+  max-height: 60px;
+  max-width: 140px;
+  object-fit: contain;
+  /*filter: grayscale(100%);*/
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.brand-item img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Infinite right-to-left animation */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause on hover (professional touch) */
+.brand-slider:hover .brand-track {
+  animation-play-state: paused;
+}
+
+
+.details{
+    display: flex;
+    flex-direction: row;
+    padding: 40px 180px;
+    background-color: var(--highlight-3);
+    color: var(--heading-main1);
+    max-height: 40vw;
+    width: 100vw;
+    justify-content: space-around;
+}
+
+.details-col{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.s-icon{
+    display: flex;
+    font-size: 70px;
+    color: var(--highlight-1);
+}
+.details-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+    align-content: center;
+     color: var(--heading-main1);
+}
+
+.details-content h2{
+    font-family: 'Rethink Sans', sans-serif;
+    font-weight: 800;
+    font-size: 44px;
+    letter-spacing: 1px;
+    color: var(--heading-main1);
+}
+
+
+.details-content p{
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 1px;
+     color: var(--heading-main1);
+}
+
+
+/* Responsive */
+
+@media (max-width: 1300px) {
+ .details{
+    display: flex;
+    padding: 40px 40px;
+    background-color: var(--highlight-3);
+    color: var(--heading-main1);
+    max-height: 40vw;
+    width: 100vw;
+    justify-content: space-between;
+}
+}
+@media (max-width: 1080px) {
+ .details{
+    display: flex;
+    padding: 40px 20px;
+    background-color: var(--highlight-3);
+    color: var(--heading-main1);
+    max-height: 40vw;
+    width: 100vw;
+    justify-content: space-between;
+}
+}
+@media (max-width: 868px) {
+  .brand-item {
+    margin: 0 25px;
+  }
+
+  .brand-item img {
+    max-height: 45px;
+    max-width: 110px;
+  }
+
+  .s-icon{
+    display: flex;
+    font-size: 50px;
+    color: var(--highlight-1);
+}
+.details-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+    align-content: center;
+     color: var(--heading-main1);
+}
+
+.details-content h2{
+    font-family: 'Rethink Sans', sans-serif;
+    font-weight: 800;
+    font-size: 34px;
+    letter-spacing: 1px;
+    color: var(--heading-main1);
+}
+
+
+.details-content p{
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+     color: var(--heading-main1);
+}
+
+}
+
+@media (max-width: 700px) {
+    .brand-item {
+        margin: 0 25px;
+    }
+
+    .brand-item img {
+        max-height: 45px;
+        max-width: 110px;
+    }
+
+    .s-icon{
+        display: flex;
+        font-size: 40px;
+        color: var(--highlight-1);
+    }
+    .details-content{
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        justify-content: center;
+        align-content: center;
+        color: var(--heading-main1);
+    }
+
+    .details-content h2{
+        font-family: 'Rethink Sans', sans-serif;
+        font-weight: 800;
+        font-size: 28px;
+        letter-spacing: 1px;
+        color: var(--heading-main1);
+    }
+
+
+    .details-content p{
+        font-family: 'Geist', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 1px;
+        color: var(--heading-main1);
+    }
+
+}
+@media (max-width: 480px) {
+    .brand-item {
+        margin: 0 18px;
+    }
+
+    .brand-item img {
+        max-height: 40px;
+        max-width: 90px;
+    }
+    .details{
+        flex-direction: column;
+        max-height: fit-content;
+        gap: 40px;
+    }
+    .details-col{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        
+    }
+   .s-icon{
+        display: flex;
+        font-size: 40px;
+        color: var(--highlight-1);
+    }
+    .details-content{
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        justify-content: center;
+        align-content: center;
+        color: var(--heading-main1);
+    }
+
+    .details-content h2{
+        font-family: 'Rethink Sans', sans-serif;
+        font-weight: 800;
+        font-size: 28px;
+        letter-spacing: 1px;
+        color: var(--heading-main1);
+    }
+
+
+    .details-content p{
+        font-family: 'Geist', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 1px;
+        color: var(--heading-main1);
+    }
+}
