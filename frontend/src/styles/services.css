@@ -1,0 +1,6 @@
+.services-page {
+  background: var(--bg);
+  color: var(--text);
+  padding: 120px 5%;
+  margin-top: 20px;
+}

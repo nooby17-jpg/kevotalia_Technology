@@ -1,0 +1,16 @@
+.gem-page {
+  background: var(--bg);
+  color: var(--text);
+  padding: 120px 5%;
+  margin-top: 20px;
+}
+.gem-account-management{
+    padding: 60px 80px;
+    background-color: var(--bg);
+    min-height: 60vh;
+}
+.gem-bids-gem{
+    padding: 60px 80px;
+    background-color: var(--nav-bg);
+    min-height: 60vh;
+}

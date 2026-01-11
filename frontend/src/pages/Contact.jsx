@@ -1,133 +1,176 @@
 import { useState } from "react";
+import usePageMeta from "../hooks/usePageMeta";
+import { countries } from "./../data/countries";
 import "./../styles/contact.css";
 
 export default function Contact() {
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  usePageMeta({
+    title: "Contact Us | Kevotalia Technology",
+    description:
+      "Contact Kevotalia Technology for security, fire safety, and enterprise protection solutions.",
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
+  const [country, setCountry] = useState("");
+  const [state, setState] = useState("");
+  const [source, setSource] = useState("");
+  const [query, setQuery] = useState("");
 
-    setTimeout(() => {
-      setLoading(false);
-      setSuccess(true);
-    }, 2000);
-  };
+  const countryOptions = Object.keys(countries);
 
   return (
     <div className="contact-page">
-
-      <div className="contact-header">
+      <section className="page-hero section-divider">
         <h1>Contact Us</h1>
-        <p>We’re here to help. Reach out to our team anytime.</p>
-      </div>
+        <p>Let’s discuss how we can secure your organization.</p>
+      </section>
 
       <div className="contact-wrapper">
-
-        {/* Info Panel */}
-        <div className="contact-info">
-          <h2>Get in Touch</h2>
-          <p>
-            Have a question about our services or need support? Fill out the
-            form and our team will respond promptly.
+        {/* LEFT PANEL */}
+        <aside className="contact-info">
+          <h2>Kevotalia Technology</h2>
+          <p className="muted">
+            Trusted partner for security, fire safety & enterprise solutions.
           </p>
 
           <div className="info-card">
-            <strong>Office Address</strong>
+            <strong>📍 Office</strong>
             <span>
-              Shop No. 1, Turf View Shopping Complex, AJC Bose Road,
-              Kolkata – 700022, India
+              Shop No. 1, Turf View Shopping Complex,<br />
+              AJC Bose Road, Alipore,<br />
+              Kolkata – 700022
             </span>
           </div>
 
           <div className="info-card">
-            <strong>Email</strong>
-            <span>kevotaliatech@gmail.com</span>
+            <strong>📧 Email</strong>
+            <a href="mailto:kevotaliatech@gmail.com">
+              kevotaliatech@gmail.com
+            </a>
           </div>
 
           <div className="info-card">
-            <strong>Phone</strong>
+            <strong>📞 Phone</strong>
             <span>+91-9531915240</span>
             <span>+91-7003935601</span>
           </div>
-        </div>
+        </aside>
 
-        {/* Form */}
-        <form className="contact-form" onSubmit={handleSubmit}>
-
+        {/* FORM */}
+        <form
+          className="contact-form"
+          action="https://formspree.io/f/xojjabpj" /* replace with real ID */
+          method="POST"
+        >
           <div className="form-grid">
-            {["Name", "Email", "Mobile", "Organization", "City", "Pin Code"].map(
-              (label, i) => (
-                <div className="field" key={i}>
-                  <input type="text" required placeholder=" " />
-                  <label>{label}</label>
-                </div>
-              )
-            )}
+            <Input name="name" label="Full Name" max={40} />
+            <Input name="email" label="Email" type="email" />
+            <Input name="mobile" label="Mobile Number" type="tel" max={15} />
+            <Input name="organization" label="Organization" max={50} />
+            <Input name="city" label="City" max={30} />
+            <Input name="pincode" label="Pin Code" type="number" max={6} />
+      
+            {/* COUNTRY */}
+            <Select
+              label="Country"
+              name="country"
+              options={countryOptions}
+              value={country}
+              onChange={(v) => {
+                setCountry(v);
+                setState("");
+              }}
+            />
 
-            <div className="field">
-              <select>
-                <option>India</option>
-                <option>USA</option>
-                <option>UK</option>
-              </select>
-              <label>Country</label>
-            </div>
+            {/* STATE (optional if country has none) */}
+            <Select
+              label="State / Region"
+              name="state"
+              options={countries[country] || []}
+              value={state}
+              disabled={!country || countries[country]?.length === 0}
+              onChange={(v) => setState(v)}
+            />
 
-            <div className="field">
-              <select>
-                <option>State*</option>
-                <option>West Bengal</option>
-                <option>Maharashtra</option>
-              </select>
-              <label>State</label>
-            </div>
+            {/* SOURCE */}
+            <Select
+              label="Source"
+              name="source"
+              options={["Website", "Referral", "Social Media"]}
+              value={source}
+              onChange={(v) => setSource(v)}
+            />
 
-            <div className="field">
-              <select>
-                <option>- Select Source -</option>
-                <option>Website</option>
-                <option>Referral</option>
-              </select>
-              <label>Source</label>
-            </div>
-
-            <div className="field">
-              <select>
-                <option>Technical Support</option>
-                <option>Sales Inquiry</option>
-              </select>
-              <label>Query Type</label>
-            </div>
+            {/* QUERY TYPE */}
+            <Select
+              label="Query Type"
+              name="query"
+              options={["Sales Inquiry", "Technical Support"]}
+              value={query}
+              onChange={(v) => setQuery(v)}
+            />
           </div>
 
-          <div className="field full">
-            <textarea rows="4" required placeholder=" "></textarea>
+          <div className="field full textarea-gap">
+            <textarea
+              name="message"
+              rows="4"
+              required
+              maxLength={500}
+              placeholder=" "
+            />
             <label>Your Message</label>
           </div>
 
-          <div className="checkbox-row">
-            <input type="checkbox" id="agree" required />
-            <label htmlFor="agree">
-              I agree to the data privacy policy and consent to be contacted.
-            </label>
-          </div>
+          <label className="checkbox-row">
+            <input type="checkbox" required />
+            <span>
+              I agree to the privacy policy and consent to be contacted.
+            </span>
+          </label>
 
-          <button type="submit" className="send-btn" disabled={loading}>
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-
-          {success && (
-            <div className="success-msg">
-              ✅ Your message has been sent successfully.
-            </div>
-          )}
-
+          <button className="send-btn">Send Message</button>
         </form>
-
       </div>
+    </div>
+  );
+}
 
+/* ---------- REUSABLE COMPONENTS ---------- */
+
+function Input({ label, name, type = "text", max }) {
+  return (
+    <div className="field">
+      <input
+        name={name}
+        type={type}
+        required
+        maxLength={max}
+        inputMode={type === "number" ? "numeric" : "text"}
+        placeholder=" "
+      />
+      <label>{label}</label>
+    </div>
+  );
+}
+
+function Select({ label, name, options, value, onChange, disabled }) {
+  return (
+    <div className="field">
+      <select
+        name={name}
+        required
+        value={value}
+        disabled={disabled}
+        onChange={(e) => onChange(e.target.value)}
+      >
+        <option value="" />
+        {options.map((o) => (
+          <option key={o} value={o}>
+            {o}
+          </option>
+        ))}
+      </select>
+      <label>{label}</label>
     </div>
   );
 }

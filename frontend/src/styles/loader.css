@@ -1,0 +1,78 @@
+/* =========================
+   FULLSCREEN MORPH LOADER
+========================= */
+
+.app-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease;
+}
+
+/* EXIT */
+.app-loader.exit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* LOGO */
+.loader-logo {
+  font-family: "Yeseva One", serif;
+  font-size: clamp(42px, 6vw, 64px);
+  letter-spacing: 0.12em;
+  color: var(--heading-main);
+  text-align: center;
+  transition: transform 0.7s ease, opacity 0.4s ease;
+}
+
+.loader-logo span {
+  display: block;
+  font-family: "Geist", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  margin-top: 12px;
+  color: var(--heading-sub);
+}
+
+/* MORPH TO NAVBAR */
+.app-loader.exit .loader-logo {
+  transform: translate(-38vw, -42vh) scale(0.45);
+  opacity: 0;
+}
+
+/* =========================
+   FULL-WIDTH PROGRESS %
+========================= */
+
+.loader-progress {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  padding-left: 12px;
+  font-family: "Geist", sans-serif;
+  font-size: 13px;
+  color: var(--heading-main);
+  white-space: nowrap;
+  transition: transform 0.25s ease;
+  will-change: transform;
+}
+
+/* Mobile fine-tuning */
+@media (max-width: 600px) {
+  .loader-progress {
+    font-size: 12px;
+    bottom: 16px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .loader-logo,
+  .loader-progress {
+    transition: none;
+  }
+}

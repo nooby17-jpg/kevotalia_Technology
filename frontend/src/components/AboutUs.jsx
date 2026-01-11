@@ -3,8 +3,9 @@ export default function AboutUs() {
   return (
     <section className="aboutUs-wrapper">
       <div className="col-1">
-        
+        <div className="about-placeholder"></div>
       </div>
+
       <div className="col-2">
         <p>About Us</p>
         <h2>We Are Kevotalia Technology:</h2>

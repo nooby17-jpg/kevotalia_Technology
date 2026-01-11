@@ -1,33 +1,8 @@
 .clients-page {
   background: var(--bg);
   color: var(--text);
-    margin-top: 50px;
-  padding: 70px 10%;
-  font-family: "Geist", sans-serif;
-}
-
-/* Divider */
-.section-divider {
-  padding-bottom: 60px;
-  margin-bottom: 60px;
-  border-bottom: 1px solid var(--border);
-}
-
-/* Hero */
-.clients-hero {
-  text-align: center;
-}
-
-.clients-hero h1 {
-  font-family: "Rethink Sans", sans-serif;
-  font-size: 46px;
-  color: var(--heading-main);
-  margin-bottom: 10px;
-}
-
-.clients-hero p {
-  font-size: 17px;
-  color: var(--heading-sub);
+  padding: 120px 5%;
+  margin-top: 20px;
 }
 
 /* Highlight / Brag Section */

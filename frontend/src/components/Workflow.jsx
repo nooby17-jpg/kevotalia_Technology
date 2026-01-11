@@ -26,7 +26,7 @@ export default function Workflow() {
             blinkit, birla, cghs, GWB, ESIC, IAF, IAI, IBM, logoAN, IAN, nestle, prosure
           ].map((logo, index) => (
             <div className="brand-item" key={index}>
-              <img src={logo} alt="brand" />
+              <img src={logo} alt="logo" loading="lazy" />
             </div>
           ))}
         </div>

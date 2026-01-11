@@ -1,12 +1,17 @@
+import usePageMeta from "../hooks/usePageMeta";
 import "./../styles/about.css";
 
-
 export default function About() {
+  usePageMeta({
+    title: "About Us | Kevotalia Technology",
+    description:
+      "Learn about Kevotalia Technology, a trusted provider of integrated security, fire safety, and compliance solutions.",
+  });
   return (
     <div className="about-page">
 
       {/* HERO */}
-      <section className="about-hero section-divider">
+      <section className="page-hero section-divider">
         <h1>About Kevotalia Technology</h1>
         <p>
           Integrated security, fire safety, and electrical solutions — built

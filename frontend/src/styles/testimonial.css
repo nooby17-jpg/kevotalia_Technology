@@ -43,21 +43,22 @@
   padding: 70px 60px;
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.05);
   position: relative;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 /* Animation */
 .animate {
-  animation: fadeScale 0.6s ease;
+  animation: fadeSlide 0.6s ease;
 }
 
-@keyframes fadeScale {
+@keyframes fadeSlide {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: translateY(16px) scale(0.97);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -78,8 +79,6 @@
   font-size: 18px;
   line-height: 1.8;
   margin-bottom: 40px;
-  z-index: 1;
-  position: relative;
 }
 
 /* User */
@@ -116,22 +115,21 @@
   color: var(--heading-sub);
 }
 
-/* Nav buttons */
+/* Premium Nav Buttons */
 .nav-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 52px;
-  height: 52px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  border: none;
-  background: linear-gradient(
-    135deg,
-    var(--highlight-1),
-    var(--highlight-2)
-  );
-  color: white;
-  font-size: 28px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  color: var(--heading-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   opacity: 0;
   transition: all 0.3s ease;
@@ -141,12 +139,27 @@
   opacity: 1;
 }
 
+.nav-btn:hover {
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.nav-btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
 .nav-btn.left {
   left: -70px;
 }
 
 .nav-btn.right {
   right: -70px;
+}
+
+/* Chevron Icons */
+.nav-btn svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* Dots */
@@ -163,12 +176,15 @@
   border-radius: 50%;
   background: var(--border);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .dot.active {
   background: var(--highlight-1);
-  transform: scale(1.3);
+}
+
+.dot:hover {
+  transform: scale(1.4);
 }
 
 /* Mobile */
@@ -185,11 +201,8 @@
     padding: 50px 30px;
   }
 
-  .nav-btn.left {
-    left: -25px;
-  }
-
-  .nav-btn.right {
-    right: -25px;
+  /* Remove buttons on mobile */
+  .nav-btn {
+    display: none;
   }
 }

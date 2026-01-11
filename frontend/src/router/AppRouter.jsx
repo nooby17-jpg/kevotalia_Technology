@@ -1,65 +1,46 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { Suspense, lazy, useEffect } from "react";
 import MainLayout from "../layouts/MainLayout";
+import NotFound from "../pages/NotFound";
+import Loader from "../components/Loader";
+const Home = lazy(() => import("../pages/Home"));
+const About = lazy(() => import("../pages/About"));
+const Clients = lazy(() => import("../pages/Clients"));
+const Contact = lazy(() => import("../pages/Contact"));
+const Products = lazy(() => import("../pages/Products"));
+const Services = lazy(() => import("../pages/Services"));
+const Solutions = lazy(() => import("../pages/Solutions"));
+const GemServices = lazy(() => import("../pages/GemServices"));
 
-/* Pages */
-import Home from "../pages/Home";
-import About from "../pages/About";
-import Clients from "../pages/Clients";
-import Contact from "../pages/Contact";
-
-/* Solutions */
-import ThreatDetection from "../pages/solutions/ThreatDetection";
-import IAM from "../pages/solutions/IAM";
-import HybridSOC from "../pages/solutions/HybridSOC";
-import GeMLogin from "../pages/solutions/GeM/GeMLogin";
-import GeMCreateAccount from "../pages/solutions/GeM/GeMCreateAccount";
-
-/* Services */
-import MSS from "../pages/services/MSS";
-import SOAR from "../pages/services/SOAR";
-import Vulnerability from "../pages/services/Vulnerability";
-import PenTesting from "../pages/services/PenTesting";
-
-/* Products */
-import Display from "../pages/products/Display";
-import ScaleRanking from "../pages/products/ScaleRanking";
-import SafetyServices from "../pages/products/SafetyServices";
-import SafetyCompliance from "../pages/products/SafetyCompliance";
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
+  return null;
+}
 
 export default function AppRouter() {
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <MainLayout>
-            <Home />
-          </MainLayout>
+    <>
+      <ScrollToTop />
+      <Suspense
+        fallback={
+          <Loader/>
         }
-      />
-
-      <Route path="/about" element={<MainLayout><About /></MainLayout>} />
-      <Route path="/clients" element={<MainLayout><Clients /></MainLayout>} />
-      <Route path="/contact" element={<MainLayout><Contact /></MainLayout>} />
-
-      {/* Solutions */}
-      <Route path="/solutions/threat-detection" element={<MainLayout><ThreatDetection /></MainLayout>} />
-      <Route path="/solutions/iam" element={<MainLayout><IAM /></MainLayout>} />
-      <Route path="/solutions/hybrid-soc" element={<MainLayout><HybridSOC /></MainLayout>} />
-      <Route path="/solutions/gem/login" element={<MainLayout><GeMLogin /></MainLayout>} />
-      <Route path="/solutions/gem/register" element={<MainLayout><GeMCreateAccount /></MainLayout>} />
-
-      {/* Services */}
-      <Route path="/services/mss" element={<MainLayout><MSS /></MainLayout>} />
-      <Route path="/services/soar" element={<MainLayout><SOAR /></MainLayout>} />
-      <Route path="/services/vulnerability" element={<MainLayout><Vulnerability /></MainLayout>} />
-      <Route path="/services/pentesting" element={<MainLayout><PenTesting /></MainLayout>} />
-
-      {/* Products */}
-      <Route path="/products/display" element={<MainLayout><Display /></MainLayout>} />
-      <Route path="/products/scale-ranking" element={<MainLayout><ScaleRanking /></MainLayout>} />
-      <Route path="/products/safety-services" element={<MainLayout><SafetyServices /></MainLayout>} />
-      <Route path="/products/compliance" element={<MainLayout><SafetyCompliance /></MainLayout>} />
-    </Routes>
+      >
+        <Routes>
+          <Route path="/" element={<MainLayout><Home /></MainLayout>} />
+          <Route path="/about" element={<MainLayout><About /></MainLayout>} />
+          <Route path="/clients" element={<MainLayout><Clients /></MainLayout>} />
+          <Route path="/contact" element={<MainLayout><Contact /></MainLayout>} />
+          <Route path="/products" element={<MainLayout><Products /></MainLayout>} />
+          <Route path="/services" element={<MainLayout><Services /></MainLayout>} />
+          <Route path="/solutions" element={<MainLayout><Solutions /></MainLayout>} />
+          <Route path="/gemservices" element={<MainLayout><GemServices /></MainLayout>} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </>
   );
 }

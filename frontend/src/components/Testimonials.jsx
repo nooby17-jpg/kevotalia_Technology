@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./../styles/testimonial.css";
+
 const testimonials = [
   {
     text: "Kevotalia Technology delivers unmatched reliability and innovation. Their security systems have completely transformed our operations.",
@@ -21,6 +22,8 @@ const testimonials = [
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
   const intervalRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const startAutoSlide = () => {
     intervalRef.current = setInterval(() => {
@@ -37,9 +40,26 @@ export default function Testimonials() {
     return () => stopAutoSlide();
   }, []);
 
-  const next = () => setIndex((prev) => (prev + 1) % testimonials.length);
+  const next = () =>
+    setIndex((prev) => (prev + 1) % testimonials.length);
+
   const prev = () =>
     setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+
+  /* Swipe handlers */
+  const onTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 50) next();
+    if (diff < -50) prev();
+  };
 
   return (
     <section
@@ -53,9 +73,23 @@ export default function Testimonials() {
         <p>Trusted by professionals nationwide</p>
       </div>
 
-      <div className="testimonial-slider">
-        <button className="nav-btn left" onClick={prev}>
-          ‹
+      <div
+        className="testimonial-slider"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        {/* LEFT BUTTON */}
+        <button className="nav-btn left" onClick={prev} aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M15 18L9 12L15 6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </button>
 
         <div key={index} className="testimonial-card animate">
@@ -76,8 +110,17 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <button className="nav-btn right" onClick={next}>
-          ›
+        {/* RIGHT BUTTON */}
+        <button className="nav-btn right" onClick={next} aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M9 6L15 12L9 18"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </button>
       </div>
 
@@ -87,7 +130,7 @@ export default function Testimonials() {
             key={i}
             className={i === index ? "dot active" : "dot"}
             onClick={() => setIndex(i)}
-          ></span>
+          />
         ))}
       </div>
     </section>

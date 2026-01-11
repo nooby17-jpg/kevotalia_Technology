@@ -1,44 +1,8 @@
 .about-page {
   background: var(--bg);
   color: var(--text);
-  padding: 70px 5%;
-  margin-top: 50px;
-}
-
-/* Divider */
-.section-divider {
-  padding-bottom: 60px;
-  margin-bottom: 60px;
-  border-bottom: 1px solid var(--border);
-}
-
-/* HERO */
-.about-hero {
-  text-align: center;
-}
-
-.about-hero h1 {
-  font-size: 42px;
-  color: var(--heading-main);
-  margin-bottom: 12px;
-}
-
-.about-hero p {
-  font-size: 18px;
-  color: var(--heading-sub);
-}
-
-/* Sections */
-.about-section h2 {
-  font-size: 28px;
-  color: var(--heading-main);
-  margin-bottom: 20px;
-}
-
-.about-section p {
-  font-size: 16px;
-  line-height: 1.8;
-  max-width: 850px;
+  padding: 120px 5%;
+  margin-top: 20px;
 }
 
 /* Two column */

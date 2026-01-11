@@ -1,6 +1,12 @@
+import usePageMeta from "../hooks/usePageMeta";
 import "./../styles/clients.css";
 
 export default function Clients() {
+    usePageMeta({
+    title: "Clients | Kevotalia Technology",
+    description:
+      "Trusted by government, enterprise, and industrial organizations across India.",
+  });
   const clients = [
     "Birla Corporation",
     "Blinkit Pvt. Ltd",
@@ -20,7 +26,7 @@ export default function Clients() {
     <div className="clients-page">
 
       {/* Hero */}
-      <section className="clients-hero section-divider">
+      <section className="page-hero section-divider">
         <h1>Our Clients</h1>
         <p>
           Trusted by leading organizations across government, enterprise,

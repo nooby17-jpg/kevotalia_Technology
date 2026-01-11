@@ -1,32 +1,41 @@
 @import "./styles/theme.css";
 
-/* =========================
-   GLOBAL RESET
-========================= */
+/* =================================================
+   GLOBAL RESET & BASE
+================================================= */
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
-
 }
-/* =========================
-   CUSTOM SCROLLBAR
-   Kevotalia Technology
-========================= */
 
-/* Firefox */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Lora", serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* =================================================
+   SCROLLBAR (BRANDED)
+================================================= */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--highlight-1) var(--bg);
 }
 
-/* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   width: 10px;
-  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -50,32 +59,44 @@
     var(--highlight-1)
   );
 }
-
-/* Optional: corner (for horizontal + vertical scroll) */
-::-webkit-scrollbar-corner {
-  background: var(--bg);
-}
-
 /* =========================
-   BODY
+   PAGE TRANSITIONS
 ========================= */
-body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: "Lora", serif;
-  line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
-   scroll-behavior: smooth;
-     overflow-x: hidden;
+
+.page-wrapper {
+  animation: pageEnter 0.5s ease forwards;
+}
+.page-exit {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-/* =========================
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .page-wrapper {
+    animation: none;
+  }
+}
+
+/* =================================================
    TYPOGRAPHY
-========================= */
+================================================= */
 h1,
 h2,
 h3 {
-  font-family:  "Rethink Sans", sans-serif;
+  font-family: "Rethink Sans", sans-serif;
   color: var(--heading-main);
   line-height: 1.2;
 }
@@ -83,96 +104,144 @@ h3 {
 h4,
 h5,
 h6 {
-  font-family: "Giest", sans-serif;
-  color: var(--heading-sub);
+  font-family: "Rethink Sans", sans-serif;
+  color: var(--heading-main);
 }
 
 p {
-  font-family: "Giest", sans-serif !important;
-  color: var(--text);
+  font-family: "Geist", sans-serif;
+  color: var(--heading-sub);
   font-size: 16px;
 }
 
-/* =========================
-   LINKS
-========================= */
 a {
-  font-family: "Giest", san-serif;
   text-decoration: none;
   color: inherit;
+  font-family: "Geist", sans-serif;
 }
 
-/* =========================
+/* =================================================
+   UNIVERSAL PAGE HERO (IMPORTANT)
+================================================= */
+.page-hero {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+    min-height: 220px;
+}
+
+.page-hero h1 {
+  font-size: clamp(32px, 5vw, 46px);
+  margin-bottom: 14px;
+}
+
+.page-hero p {
+  font-size: clamp(15px, 2.5vw, 18px);
+  color: var(--heading-sub);
+}
+
+/* Divider used everywhere */
+.section-divider {
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+  border-bottom: 1px solid var(--highlight-3);
+}
+.section-divider h2{
+  font-size: 34px;
+}
+.section-divider p{
+  font-size: 18px;
+  margin: 10px 0;
+}
+.section-divider ul{
+  font-size: 18px;
+  margin: 10px 0;
+}
+.section-divider ul li{
+  font-size: 18px;
+  margin: 5px 0;
+}
+/* =================================================
    LAYOUT HELPERS
-========================= */
+================================================= */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* =========================
-   PAGE SECTIONS
-========================= */
-section {
-  padding: 0;
+.text-center {
+  text-align: center;
 }
 
-.page-header {
-  padding: 80px 0 40px;
-}
+.mt-20 { margin-top: 20px; }
+.mt-40 { margin-top: 40px; }
 
-.page-header h1 {
-  font-size: 42px;
-}
-
-.page-header p {
-  font-size: 18px;
-  max-width: 720px;
-  margin-top: 12px;
-}
-
-/* =========================
+/* =================================================
    CARDS
-========================= */
-.card {
+================================================= */
+.card,
+.client-card,
+.service-card,
+.testimonial-card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 24px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+.card:hover,
+.client-card:hover,
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* =========================
+/* =================================================
    BUTTONS
-========================= */
+================================================= */
 button {
-  font-family: "Chivo", sans-serif;
+  font-family: "Rethink Sans", sans-serif;
   cursor: pointer;
   border: none;
   outline: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.btn-primary {
-  background: var(--highlight-1);
-  color: var(--heading-main1);
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-size: 14px;
+button:hover {
+  transform: translateY(-2px);
 }
 
-.btn-primary:hover {
+button:active {
+  transform: translateY(0);
   opacity: 0.9;
 }
 
-/* =========================
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--highlight-1),
+    var(--highlight-2)
+  );
+  color: white;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--heading-main);
+  padding: 14px 22px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+/* =================================================
    FORMS
-========================= */
+================================================= */
 input,
 textarea,
 select {
@@ -182,7 +251,7 @@ select {
   border: 1px solid var(--border);
   background: var(--card);
   color: var(--text);
-  font-family: "Lora", serif;
+  font-family: "Geist", sans-serif;
 }
 
 input::placeholder,
@@ -190,230 +259,70 @@ textarea::placeholder {
   opacity: 0.6;
 }
 
-/* =========================
-   FOOTER (BASE)
-========================= */
-footer {
-  background: var(--navbar);
-  color: var(--heading-main1);
-}
-
-/* =========================
-   UTILITIES
-========================= */
-.text-center {
-  text-align: center;
-}
-
-.mt-20 {
-  margin-top: 20px;
-}
-
-.mt-40 {
-  margin-top: 40px;
-}
-
-.container {
-  max-width: 100vw;
-  margin: auto;
-  padding: 0;
-
-}
-
-
-/*Testimonials*/
-.testimonial-ultra {
-  background: var(--bg);
-  color: var(--text);
-  padding: 110px 10%;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Header */
-.testimonial-header span {
-  color: var(--highlight-1);
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.testimonial-header h2 {
-  font-family: "Rethink Sans", sans-serif;
-  font-size: 40px;
-  margin: 10px 0;
-  color: var(--heading-main);
-}
-
-.testimonial-header p {
-  color: var(--heading-sub);
-  margin-bottom: 70px;
-}
-
-/* Slider */
-.testimonial-slider {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* Card */
-.testimonial-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 70px 60px;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.05);
-  position: relative;
-}
-
-/* Animation */
-.animate {
-  animation: fadeScale 0.6s ease;
-}
-
-@keyframes fadeScale {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Big quote */
-.quote-bg {
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  font-size: 140px;
-  color: var(--highlight-4);
-  line-height: 1;
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-/* Text */
-.testimonial-text {
-  font-size: 18px;
-  line-height: 1.8;
-  margin-bottom: 40px;
-  z-index: 1;
-  position: relative;
-}
-
-/* User */
-.testimonial-user {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  justify-content: center;
-}
-
-.avatar {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    var(--highlight-1),
-    var(--highlight-2)
-  );
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-}
-
-.testimonial-user strong {
-  display: block;
-  font-family: "Rethink Sans", sans-serif;
-}
-
-.testimonial-user span {
-  font-size: 13px;
-  color: var(--heading-sub);
-}
-
-/* Nav buttons */
-.nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: none;
-  background: linear-gradient(
-    135deg,
-    var(--highlight-1),
-    var(--highlight-2)
-  );
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
+/* =================================================
+   PAGE TRANSITION
+================================================= */
+.page-enter {
   opacity: 0;
-  transition: all 0.3s ease;
+  transform: translateY(20px);
 }
 
-.testimonial-slider:hover .nav-btn {
+.page-enter-active {
   opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.nav-btn.left {
-  left: -70px;
+/* =================================================
+   ACCESSIBILITY
+================================================= */
+:focus-visible {
+  outline: 2px solid var(--highlight-1);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
-.nav-btn.right {
-  right: -70px;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
-/* Dots */
-.dots {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 36px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--border);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.dot.active {
-  background: var(--highlight-1);
-  transform: scale(1.3);
-}
-
-/* Mobile */
+/* =================================================
+   RESPONSIVE
+================================================= */
 @media (max-width: 768px) {
-  .testimonial-ultra {
-    padding: 90px 6%;
+  .section-divider {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
   }
+}
+@media (max-width: 480px) {
+  .section-divider {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+  }
+}
+.field select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/* =========================
+   GLOBAL LIST TYPOGRAPHY
+   (Kevotalia Technology)
+========================= */
 
-  .testimonial-header h2 {
-    font-size: 30px;
-  }
+ul,
+ol {
+  font-family: "Rethink Sans", sans-serif;
+  color: inherit;
+  padding-left: 1.2rem;
+}
 
-  .testimonial-card {
-    padding: 50px 30px;
-  }
-
-  .nav-btn.left {
-    left: -25px;
-  }
-
-  .nav-btn.right {
-    right: -25px;
-  }
+li {
+  font-family: "Geist", sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 6px;
 }

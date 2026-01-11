@@ -18,12 +18,13 @@ export default function Footer() {
     <footer className="footer">
       {/* TOP ROW */}
       <div className="footer-top">
-         <div className="footer-brand">
+        <div className="footer-brand">
           <img
             src={ll}
             alt="Kevotalia Technology"
+            loading="lazy"
           />
-         <div>
+          <div>
             <h3>Kevotalia Technology</h3>
             <p>
               Security, Safety & Trusts
@@ -34,32 +35,28 @@ export default function Footer() {
           <div>
             <h4>Services</h4>
             <Link to="/about">About</Link>
-            <Link to="/services/mss">MSS</Link>
-            <Link to="/services/soar">SOAR</Link>
-            <Link to="/services/vulnerability">Vulnerability Management</Link>
-            <Link to="/services/pentesting">Penetration Testing</Link>
+            <Link to="/services">MSS</Link>
+            <Link to="/services">SOAR</Link>
+            <Link to="/services">Vulnerability Management</Link>
+          
             <Link to="/clients">Clients</Link>
           </div>
 
           <div>
             <h4>Solutions</h4>
-            <Link to="/solutions/threat-detection">Threat Detection & Response</Link>
-            <Link to="/solutions/iam">IAM</Link>
-            <Link to="/solutions/hybrid-soc">Hybrid SOC</Link>
-
-            <div className="footer-nested">
-              <span>GeM Services</span>
-              <Link to="/solutions/gem/login">Login</Link>
-              <Link to="/solutions/gem/register">Register</Link>
-            </div>
+            <Link to="/solutions">Threat Detection & Response</Link>
+            <Link to="/solutions">IAM</Link>
+            <Link to="/solutions">Hybrid SOC</Link>
+            <Link to="/gemservices">GeM Services</Link>
+            <Link to="/contact">Contact Us</Link>
           </div>
 
           <div>
             <h4>Products</h4>
-            <Link to="/products/display">Display</Link>
-            <Link to="/products/scale-ranking">Scale & Ranking</Link>
-            <Link to="/products/safety-services">Safety Services</Link>
-            <Link to="/products/compliance">Safety Fulfillment & Compliance</Link>
+            <Link to="/products">View Products</Link>
+            <Link to="/products">Scale & Ranking</Link>
+            <Link to="/products">Safety Services</Link>
+            <Link to="/products">Safety Fulfillment & Compliance</Link>
           </div>
 
           <div className="contactInfo">

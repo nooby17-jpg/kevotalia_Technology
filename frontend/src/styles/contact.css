@@ -1,83 +1,96 @@
+/* =========================
+   CONTACT PAGE – BASE
+========================= */
 .contact-page {
   background: var(--bg);
   color: var(--text);
-  padding: 70px 10%;
-  font-family: "Geist", sans-serif;
-  margin-top: 50px;
+  padding: 120px 6%;
+  margin-top: 20px;
 }
 
-/* Header */
-.contact-header {
-  text-align: center;
-  margin-bottom: 70px;
-}
-
-.contact-header h1 {
-  font-family: "Rethink Sans", sans-serif;
-  font-size: 46px;
-  color: var(--heading-main);
-  margin-bottom: 10px;
-}
-
-.contact-header p {
-  font-size: 17px;
-  color: var(--heading-sub);
-}
-
-/* Layout */
+/* =========================
+   LAYOUT
+========================= */
 .contact-wrapper {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 70px;
-  align-items: start;
+  grid-template-columns: 1.1fr 1.9fr;
+  gap: 80px;
+  align-items: flex-start;
 }
 
-/* Info */
+/* =========================
+   LEFT INFO PANEL
+========================= */
+.contact-info {
+  position: sticky;
+  top: 120px;
+}
+
 .contact-info h2 {
   font-family: "Rethink Sans", sans-serif;
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 30px;
+  margin-bottom: 6px;
+  color: var(--heading-main);
 }
 
-.contact-info p {
-  margin-bottom: 30px;
-  line-height: 1.7;
-  font-size: 15px;
+.contact-info .muted {
+  font-size: 14px;
+  opacity: 0.75;
+  margin-bottom: 32px;
+  line-height: 1.6;
 }
 
 .info-card {
-  padding: 18px;
+  padding: 20px;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 14px;
   background: var(--card);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .info-card strong {
   font-family: "Rethink Sans", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--heading-main);
 }
 
-/* Form */
+.info-card span,
+.info-card a {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.info-card a:hover {
+  color: var(--highlight-1);
+}
+
+/* =========================
+   FORM CONTAINER
+========================= */
 .contact-form {
   background: var(--card);
-  padding: 45px;
-  border-radius: 14px;
+  padding: 48px;
+  border-radius: 18px;
   border: 1px solid var(--border);
 }
 
-/* Grid */
+/* =========================
+   FORM GRID
+========================= */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 26px 22px;
+  gap: 28px 22px;
 }
 
-/* Floating fields */
+/* =========================
+   FORM FIELDS
+========================= */
 .field {
   position: relative;
   font-family: "Geist", sans-serif;
@@ -89,13 +102,24 @@
   width: 100%;
   padding: 18px 14px;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--bg);
   color: var(--text);
   font-size: 15px;
   outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Remove number arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* =========================
+   FLOATING LABELS
+========================= */
 .field label {
   position: absolute;
   left: 14px;
@@ -110,32 +134,66 @@
   font-family: "Rethink Sans", sans-serif;
 }
 
+/* Active / Filled */
 .field input:focus + label,
 .field input:not(:placeholder-shown) + label,
 .field textarea:focus + label,
-.field textarea:not(:placeholder-shown) + label {
-  top: -7px;
+.field textarea:not(:placeholder-shown) + label,
+.field select:focus + label,
+.field select:not([value=""]) + label {
+  top: -8px;
   font-size: 12px;
   color: var(--highlight-1);
 }
 
+/* =========================
+   FOCUS STATE
+========================= */
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: var(--highlight-1);
+  box-shadow: 0 0 0 3px rgba(0, 180, 80, 0.08);
+}
+
+/* =========================
+   FULL WIDTH FIELD
+========================= */
 .field.full {
   grid-column: 1 / -1;
+  margin-top: 28px;
 }
 
-/* Checkbox */
+/* =========================
+   CHECKBOX
+========================= */
 .checkbox-row {
   display: flex;
-  gap: 12px;
-  margin-top: 26px;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 30px;
   font-size: 14px;
+  cursor: pointer;
 }
 
-/* Button */
+.checkbox-row input {
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  accent-color: var(--highlight-1);
+}
+
+.checkbox-row span {
+  line-height: 1.6;
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
 .send-btn {
-  margin-top: 36px;
-  padding: 16px 30px;
-  border-radius: 10px;
+  margin-top: 38px;
+  padding: 16px 32px;
+  border-radius: 12px;
   border: none;
   background: linear-gradient(
     135deg,
@@ -146,6 +204,12 @@
   font-weight: 600;
   font-size: 15px;
   cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.send-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
 }
 
 .send-btn:disabled {
@@ -153,29 +217,56 @@
   cursor: not-allowed;
 }
 
-/* Success */
+/* =========================
+   MESSAGES
+========================= */
 .success-msg {
-  margin-top: 20px;
+  margin-top: 18px;
   color: var(--highlight-1);
   font-weight: 600;
 }
 
-/* Mobile */
-@media (max-width: 900px) {
+.error-msg {
+  margin-top: 16px;
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+/* =========================
+   RESPONSIVE – TABLET
+========================= */
+@media (max-width: 1000px) {
   .contact-wrapper {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 60px;
+  }
+
+  .contact-info {
+    position: static;
+  }
+
+  .contact-form {
+    padding: 40px;
+  }
+}
+
+/* =========================
+   RESPONSIVE – MOBILE
+========================= */
+@media (max-width: 600px) {
+  .contact-page {
+    padding: 60px 6%;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
   }
 
-  .contact-page {
-    padding: 60px 6%;
+  .contact-info h2 {
+    font-size: 26px;
   }
 
-  .contact-header h1 {
-    font-size: 32px;
+  .send-btn {
+    width: 100%;
   }
 }
