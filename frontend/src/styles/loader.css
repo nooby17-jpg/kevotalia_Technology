@@ -1,78 +1,137 @@
-/* =========================
-   FULLSCREEN MORPH LOADER
-========================= */
+/* ==============================================
+   FULLSCREEN INTRO LOADER — Kevotalia Technology
+   Flow: fade-in → hold → morph to navbar → done
+============================================== */
 
 .app-loader {
   position: fixed;
   inset: 0;
-  background: var(--bg);
   z-index: 9999;
+  background: var(--bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.6s ease;
+  /* Fade the whole overlay out on exit */
+  transition: opacity 0.5s ease 0.3s;
 }
 
-/* EXIT */
 .app-loader.exit {
   opacity: 0;
   pointer-events: none;
 }
 
-/* LOGO */
-.loader-logo {
-  font-family: "Yeseva One", serif;
-  font-size: clamp(42px, 6vw, 64px);
-  letter-spacing: 0.12em;
-  color: var(--heading-main);
-  text-align: center;
-  transition: transform 0.7s ease, opacity 0.4s ease;
+/* -----------------------------------------------
+   Dot-grid background (very subtle)
+----------------------------------------------- */
+.loader-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
-.loader-logo span {
-  display: block;
-  font-family: "Geist", sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.35em;
-  margin-top: 12px;
-  color: var(--heading-sub);
-}
-
-/* MORPH TO NAVBAR */
-.app-loader.exit .loader-logo {
-  transform: translate(-38vw, -42vh) scale(0.45);
-  opacity: 0;
-}
-
-/* =========================
-   FULL-WIDTH PROGRESS %
-========================= */
-
-.loader-progress {
-  position: fixed;
-  bottom: 20px;
+/* -----------------------------------------------
+   Thin green accent line that sweeps in from left
+----------------------------------------------- */
+.loader-line {
+  position: absolute;
+  bottom: 0;
   left: 0;
-  padding-left: 12px;
-  font-family: "Geist", sans-serif;
-  font-size: 13px;
-  color: var(--heading-main);
-  white-space: nowrap;
-  transition: transform 0.25s ease;
-  will-change: transform;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--highlight-1), var(--highlight-2));
+  border-radius: 0 2px 2px 0;
+  animation: lineGrow 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* Mobile fine-tuning */
-@media (max-width: 600px) {
-  .loader-progress {
-    font-size: 12px;
-    bottom: 16px;
+@keyframes lineGrow {
+  0%   { width: 0; opacity: 0; }
+  10%  { opacity: 1; }
+  100% { width: 100%; opacity: 1; }
+}
+
+/* -----------------------------------------------
+   Logo block — centres, fades & scales in
+----------------------------------------------- */
+.loader-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  /* enter animation */
+  animation: logoEnter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  /* exit: morph toward top-left (navbar brand position) */
+  transition:
+    transform 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity   0.4s ease;
+}
+
+@keyframes logoEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.82) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
 
-/* Reduced motion */
+/* On exit — shrink and slide toward top-left navbar logo position */
+.loader-logo.exit {
+  transform: translate(-42vw, -44vh) scale(0.32);
+  opacity: 0;
+}
+
+/* Main wordmark */
+.loader-logo-main {
+  font-family: "Yeseva One", serif;
+  font-size: clamp(40px, 7vw, 68px);
+  letter-spacing: 0.1em;
+  color: var(--heading-main);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Sub-label */
+.loader-logo-sub {
+  font-family: "Geist", sans-serif;
+  font-size: clamp(11px, 1.2vw, 14px);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--heading-sub);
+  white-space: nowrap;
+}
+
+/* Green underline accent that grows under the logo */
+.loader-underline {
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--highlight-1), var(--highlight-2));
+  border-radius: 2px;
+  margin-top: 4px;
+  animation: underlineGrow 0.7s ease 0.5s forwards;
+}
+
+@keyframes underlineGrow {
+  from { width: 0; opacity: 0; }
+  to   { width: 80%; opacity: 1; }
+}
+
+/* -----------------------------------------------
+   Reduced motion — skip all animations
+----------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .loader-logo,
-  .loader-progress {
-    transition: none;
+  .loader-logo.exit,
+  .loader-line,
+  .loader-underline {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1;
+    transform: none;
+    width: 80%;
   }
 }

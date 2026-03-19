@@ -70,6 +70,15 @@
   width: 100%;
 }
 
+/* Active page — persistent green underline + green text */
+.nav a.active {
+  color: var(--highlight-1);
+}
+
+.nav a.active::after {
+  width: 100%;
+}
+
 /* GLASS */
 
 /* DROPDOWNS */

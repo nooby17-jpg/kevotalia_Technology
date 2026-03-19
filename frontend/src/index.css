@@ -326,3 +326,35 @@ li {
   line-height: 1.7;
   margin-bottom: 6px;
 }
+
+/* =================================================
+   GLOBAL SCROLL FADE-IN
+   (used by useFadeIn hook across all pages)
+================================================= */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger for grids — up to 6 children */
+.fade-in-up:nth-child(2) { transition-delay: 0.08s; }
+.fade-in-up:nth-child(3) { transition-delay: 0.16s; }
+.fade-in-up:nth-child(4) { transition-delay: 0.24s; }
+.fade-in-up:nth-child(5) { transition-delay: 0.32s; }
+.fade-in-up:nth-child(6) { transition-delay: 0.40s; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

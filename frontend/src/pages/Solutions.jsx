@@ -3,6 +3,7 @@ import HybridSOC from "../components/solutions/HybridSOC";
 import IAM from "../components/solutions/IAM";
 import ThreatDetection from "../components/solutions/ThreatDetection";
 import "./../styles/solutions.css";
+import "./../styles/services.css"; // shared service-block styles
 
 export default function Solutions() {
   usePageMeta({

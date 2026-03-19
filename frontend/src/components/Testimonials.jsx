@@ -6,24 +6,43 @@ const testimonials = [
     text: "Kevotalia Technology delivers unmatched reliability and innovation. Their security systems have completely transformed our operations.",
     name: "Sapan Kamilla",
     company: "Compugraphs Softech Solutions Pvt. Ltd",
+    rating: 5,
   },
   {
     text: "Exceptional service and industry-grade solutions. Their team understands compliance and safety like no one else.",
     name: "Amit Verma",
     company: "Logistics Operations Head",
+    rating: 4,
   },
   {
-    text: "We trust Kevotalia for all our safety and surveillance needs. Professional, fast, and dependable.",
+    text: "We trust Kevotalia for all our safety and surveillance needs. Professional, fast, and dependable every single time.",
     name: "Neha Sharma",
     company: "Facility Manager",
+    rating: 4,
+  },
+  {
+    text: "The fire safety audit and AMC support from Kevotalia has given us complete peace of mind. Highly recommend for any enterprise.",
+    name: "Rajesh Nair",
+    company: "Operations Director, Manufacturing Unit",
+    rating: 5,
   },
 ];
 
+function Stars({ count = 5 }) {
+  return (
+    <div className="testimonial-stars" aria-label={`${count} out of 5 stars`}>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <span key={i} className={i < count ? "star filled" : "star"}>★</span>
+      ))}
+    </div>
+  );
+}
+
 export default function Testimonials() {
-  const [index, setIndex] = useState(0);
-  const intervalRef = useRef(null);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
+  const [index, setIndex]     = useState(0);
+  const intervalRef           = useRef(null);
+  const touchStartX           = useRef(0);
+  const touchEndX             = useRef(0);
 
   const startAutoSlide = () => {
     intervalRef.current = setInterval(() => {
@@ -31,33 +50,21 @@ export default function Testimonials() {
     }, 5000);
   };
 
-  const stopAutoSlide = () => {
-    clearInterval(intervalRef.current);
-  };
+  const stopAutoSlide = () => clearInterval(intervalRef.current);
 
   useEffect(() => {
     startAutoSlide();
     return () => stopAutoSlide();
   }, []);
 
-  const next = () =>
-    setIndex((prev) => (prev + 1) % testimonials.length);
+  const next = () => setIndex((prev) => (prev + 1) % testimonials.length);
+  const prev = () => setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
-  const prev = () =>
-    setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-
-  /* Swipe handlers */
-  const onTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const onTouchMove = (e) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-
-  const onTouchEnd = () => {
+  const onTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
+  const onTouchMove  = (e) => { touchEndX.current   = e.touches[0].clientX; };
+  const onTouchEnd   = () => {
     const diff = touchStartX.current - touchEndX.current;
-    if (diff > 50) next();
+    if (diff > 50)  next();
     if (diff < -50) prev();
   };
 
@@ -69,31 +76,35 @@ export default function Testimonials() {
     >
       <div className="testimonial-header">
         <span>Testimonials</span>
-        <h2>Our Happy Customers</h2>
-        <p>Trusted by professionals nationwide</p>
-      </div>
+        <h2>What Our Clients Say</h2>
+        <p>Trusted by professionals and organisations across India</p>
 
+        {/* Overall rating summary 
+        <div className="testimonial-overall">
+          <Stars count={5} />
+          <span className="overall-label">5.0 / 5 — based on client feedback</span>
+        </div>
+           */}
+      </div>
+   
       <div
         className="testimonial-slider"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
-        {/* LEFT BUTTON */}
         <button className="nav-btn left" onClick={prev} aria-label="Previous">
           <svg viewBox="0 0 24 24" fill="none">
-            <path
-              d="M15 18L9 12L15 6"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+            <path d="M15 18L9 12L15 6" stroke="currentColor"
+              strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
 
         <div key={index} className="testimonial-card animate">
-          <div className="quote-bg">“</div>
+          <div className="quote-bg">"</div>
+
+          {/* Star rating per testimonial */}
+          <Stars count={testimonials[index].rating} />
 
           <p className="testimonial-text">
             {testimonials[index].text}
@@ -110,16 +121,10 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* RIGHT BUTTON */}
         <button className="nav-btn right" onClick={next} aria-label="Next">
           <svg viewBox="0 0 24 24" fill="none">
-            <path
-              d="M9 6L15 12L9 18"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+            <path d="M9 6L15 12L9 18" stroke="currentColor"
+              strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
       </div>

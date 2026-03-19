@@ -1,16 +1,183 @@
 .gem-page {
   background: var(--bg);
   color: var(--text);
-  padding: 120px 5%;
+  padding: 120px 5% 60px;
   margin-top: 20px;
 }
-.gem-account-management{
-    padding: 60px 80px;
-    background-color: var(--bg);
-    min-height: 60vh;
+
+.gem-eyebrow {
+  display: inline-block;
+  font-family: "Geist", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--highlight-1);
+  margin-bottom: 8px;
 }
-.gem-bids-gem{
-    padding: 60px 80px;
-    background-color: var(--nav-bg);
-    min-height: 60vh;
+
+/* =====================
+   GEM BLOCK
+===================== */
+.gem-block {
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+  border-bottom: 1px solid var(--border);
+}
+
+.gem-block-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+.gem-block-icon {
+  font-size: 44px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.gem-block-header h2 {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 28px;
+  color: var(--heading-main);
+  margin-bottom: 8px;
+}
+
+.gem-block-desc {
+  font-size: 16px;
+  color: var(--heading-sub);
+  line-height: 1.7;
+  max-width: 680px;
+  margin: 0;
+}
+
+/* =====================
+   FEATURE CARDS
+===================== */
+.gem-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.gem-feature-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gem-feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--highlight-1);
+  box-shadow: 0 12px 32px rgba(30,171,63,0.1);
+}
+
+.gem-feat-icon {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.gem-feature-card h4 {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--heading-main);
+  margin-bottom: 8px;
+}
+
+.gem-feature-card p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--heading-sub);
+  margin: 0;
+}
+
+/* =====================
+   PROCESS STEPS
+===================== */
+.gem-process h3 {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 20px;
+  color: var(--heading-main);
+  margin-bottom: 20px;
+}
+
+.gem-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.gem-step {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 16px;
+  position: relative;
+  transition: border-color 0.2s ease;
+}
+
+.gem-step:hover {
+  border-color: var(--highlight-1);
+}
+
+.gem-step-num {
+  display: block;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--highlight-1);
+  opacity: 0.35;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.gem-step strong {
+  display: block;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 14px;
+  color: var(--heading-main);
+  margin-bottom: 6px;
+}
+
+.gem-step p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--heading-sub);
+  margin: 0;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .gem-block-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .gem-block-icon {
+    font-size: 36px;
+  }
+
+  .gem-block-header h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gem-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gem-steps {
+    grid-template-columns: 1fr 1fr;
+  }
 }

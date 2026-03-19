@@ -1,4 +1,4 @@
-import usePageMeta from "../hooks/usePageMeta"; // ✅ MISSING IMPORT
+import usePageMeta from "../hooks/usePageMeta";
 import MSS from "../components/services/MSS";
 import PenTesting from "../components/services/PenTesting";
 import SOAR from "../components/services/SOAR";
@@ -15,7 +15,7 @@ export default function Services() {
   return (
     <div className="services-page">
       <section className="page-hero section-divider">
-        <h1>Services Provided By Kevotalia Technology</h1>
+        <h1>Services by Kevotalia Technology</h1>
         <p>
           Integrated security, fire safety, and electrical solutions — built on
           trust, precision, and reliability.

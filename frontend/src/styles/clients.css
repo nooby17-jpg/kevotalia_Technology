@@ -1,112 +1,222 @@
 .clients-page {
   background: var(--bg);
   color: var(--text);
-  padding: 120px 5%;
+  padding: 120px 5% 60px;
   margin-top: 20px;
 }
 
-/* Highlight / Brag Section */
+.clients-eyebrow {
+  display: inline-block;
+  font-family: "Geist", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--highlight-1);
+  margin-bottom: 10px;
+}
+
+/* =====================
+   HIGHLIGHT / BRAG
+===================== */
 .clients-highlight h2 {
   font-family: "Rethink Sans", sans-serif;
   font-size: 30px;
+  color: var(--heading-main);
   margin-bottom: 12px;
 }
 
 .clients-highlight p {
-  max-width: 800px;
-  line-height: 1.7;
+  max-width: 720px;
+  line-height: 1.75;
   font-size: 16px;
+  color: var(--heading-sub);
   margin-bottom: 40px;
 }
 
 .highlight-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  text-align: center;
+  gap: 20px;
 }
 
-.highlight-stats h3 {
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--highlight-1);
+}
+
+.stat-card-icon {
+  display: block;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.stat-card h3 {
   font-size: 32px;
+  font-weight: 800;
   color: var(--highlight-1);
   font-family: "Rethink Sans", sans-serif;
+  margin-bottom: 4px;
 }
 
-.highlight-stats span {
+.stat-card span {
+  font-size: 13px;
   font-weight: 600;
+  color: var(--heading-sub);
+  font-family: "Geist", sans-serif;
 }
 
-/* Clients List */
+/* =====================
+   CLIENTS LIST
+===================== */
 .clients-list h2 {
   font-family: "Rethink Sans", sans-serif;
   font-size: 28px;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
+  color: var(--heading-main);
 }
 
 .clients-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
 }
 
 .client-card {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 16px;
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 14px;
   text-align: center;
-  font-weight: 600;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .client-card:hover {
+  transform: translateY(-4px);
   border-color: var(--highlight-1);
-  color: var(--highlight-1);
-  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(30,171,63,0.1);
 }
 
-/* CTA */
-.clients-cta {
-  text-align: center;
-  padding: 60px 20px;
+.client-card-icon {
+  font-size: 28px;
 }
 
-.clients-cta h2 {
+.client-card strong {
   font-family: "Rethink Sans", sans-serif;
-  font-size: 32px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--heading-main);
+  display: block;
+}
+
+.client-sector {
+  font-size: 11px;
+  font-family: "Geist", sans-serif;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--nav-bg);
+  border: 1px solid var(--border);
+  color: var(--heading-sub);
+}
+
+/* =====================
+   CTA
+===================== */
+.clients-cta {
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--highlight-3), var(--highlight-2));
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.clients-cta-inner h2 {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 28px;
+  color: #fff;
   margin-bottom: 10px;
 }
 
-.clients-cta p {
-  margin-bottom: 24px;
-  font-size: 17px;
+.clients-cta-inner p {
+  color: rgba(255,255,255,0.8);
+  font-size: 16px;
+  margin-bottom: 28px;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .cta-btn {
-  padding: 16px 30px;
+  padding: 14px 32px;
   border-radius: 10px;
   border: none;
-  background: linear-gradient(
-    135deg,
-    var(--highlight-1),
-    var(--highlight-2)
-  );
-  color: white;
-  font-weight: 600;
+  background: #fff;
+  color: var(--highlight-2);
+  font-weight: 700;
+  font-size: 15px;
   cursor: pointer;
+  font-family: "Rethink Sans", sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Mobile */
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.cta-btn-outline {
+  padding: 14px 32px;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.6);
+  background: transparent;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Rethink Sans", sans-serif;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.cta-btn-outline:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.1);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
 @media (max-width: 900px) {
   .highlight-stats {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .clients-page {
-    padding: 60px 6%;
+    padding: 100px 5% 40px;
   }
+}
 
-  .clients-hero h1 {
-    font-size: 32px;
+@media (max-width: 500px) {
+  .clients-cta {
+    padding: 40px 20px;
+    border-radius: 12px;
+  }
+  .clients-cta-inner h2 {
+    font-size: 22px;
   }
 }

@@ -206,3 +206,43 @@
     display: none;
   }
 }
+
+/* =====================
+   STAR RATINGS
+===================== */
+.testimonial-overall {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  margin-bottom: -40px; /* pulls into the existing margin-bottom: 70px on .testimonial-header p */
+}
+
+.overall-label {
+  font-family: "Geist", sans-serif;
+  font-size: 13px;
+  color: var(--heading-sub);
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.star {
+  font-size: 20px;
+  color: var(--border);
+  transition: color 0.2s ease;
+}
+
+.star.filled {
+  color: #f59e0b;  /* amber — standard star colour across the web */
+}
+
+/* Overall rating stars slightly larger */
+.testimonial-overall .testimonial-stars .star {
+  font-size: 22px;
+}

@@ -1,0 +1,135 @@
+/* ==============================================
+   HOME — SERVICES PREVIEW SECTION
+============================================== */
+.home-services {
+  background: var(--nav-bg);
+  padding: 100px 5%;
+}
+
+.home-services-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 56px;
+}
+
+.home-services-eyebrow {
+  display: inline-block;
+  font-family: "Geist", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--highlight-1);
+  margin-bottom: 10px;
+}
+
+.home-services-header h2 {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: clamp(24px, 3.5vw, 34px);
+  color: var(--heading-main);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.home-services-header p {
+  font-size: 16px;
+  color: var(--heading-sub);
+  line-height: 1.7;
+}
+
+/* Grid */
+.home-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-bottom: 48px;
+}
+
+/* Card */
+.home-service-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.home-service-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--highlight-1);
+  box-shadow: 0 16px 40px rgba(30, 171, 63, 0.1);
+}
+
+.home-service-card:focus-visible {
+  outline: 2px solid var(--highlight-1);
+  outline-offset: 3px;
+}
+
+.hs-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.home-service-card h3 {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--heading-main);
+  margin-bottom: 8px;
+}
+
+.home-service-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--heading-sub);
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.hs-arrow {
+  font-family: "Geist", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--highlight-1);
+  transition: gap 0.2s ease;
+  display: inline-block;
+}
+
+.home-service-card:hover .hs-arrow {
+  letter-spacing: 0.5px;
+}
+
+/* CTA row */
+.home-services-cta {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .home-services {
+    padding: 70px 5%;
+  }
+
+  .home-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-services-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .home-services-cta button {
+    width: 100%;
+    text-align: center;
+  }
+}

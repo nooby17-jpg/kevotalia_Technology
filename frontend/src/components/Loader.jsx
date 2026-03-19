@@ -2,45 +2,36 @@ import { useEffect, useState } from "react";
 import "./../styles/loader.css";
 
 export default function Loader({ onFinish }) {
-  const [progress, setProgress] = useState(0);
-  const [exit, setExit] = useState(false);
+  const [phase, setPhase] = useState("enter"); 
+  // phases: "enter" → "hold" → "exit"
 
   useEffect(() => {
-    let value = 0;
+    // Phase 1: logo fades/scales in (CSS handles it)
+    // Phase 2: hold briefly at full size
+    const holdTimer = setTimeout(() => {
+      setPhase("exit");
+      // Phase 3: morph exit → then unmount
+      setTimeout(() => {
+        onFinish?.();
+      }, 750);
+    }, 1400);
 
-    const interval = setInterval(() => {
-      value += Math.floor(Math.random() * 6) + 2;
-      if (value >= 100) {
-        value = 100;
-        clearInterval(interval);
-
-        setTimeout(() => {
-          setExit(true);
-          setTimeout(onFinish, 700);
-        }, 300);
-      }
-      setProgress(value);
-    }, 90);
-
-    return () => clearInterval(interval);
+    return () => clearTimeout(holdTimer);
   }, [onFinish]);
 
   return (
-    <div className={`app-loader ${exit ? "exit" : ""}`}>
-      {/* CENTER LOGO */}
-      <div className="loader-logo">
-        Kevotalia
-        <span>Technology</span>
-      </div>
+    <div className={`app-loader ${phase === "exit" ? "exit" : ""}`}>
+      {/* Subtle dot grid background */}
+      <div className="loader-bg" />
 
-      {/* FULL-WIDTH PROGRESS */}
-      <div
-        className="loader-progress"
-        style={{
-          transform: `translateX(${progress}vw)`,
-        }}
-      >
-        {progress}%
+      {/* Green accent line — animates in */}
+      <div className="loader-line" />
+
+      {/* Logo block */}
+      <div className={`loader-logo ${phase === "exit" ? "exit" : ""}`}>
+        <span className="loader-logo-main">Kevotalia</span>
+        <span className="loader-logo-sub">Technology</span>
+        <div className="loader-underline" />
       </div>
     </div>
   );

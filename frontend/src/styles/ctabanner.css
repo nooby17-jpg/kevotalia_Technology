@@ -1,0 +1,120 @@
+/* =====================
+   PRE-FOOTER CTA BANNER
+===================== */
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--highlight-3) 0%, var(--highlight-2) 100%);
+  padding: 64px 5%;
+}
+
+/* subtle dot pattern overlay */
+.cta-banner-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+/* glow blob */
+.cta-banner::after {
+  content: "";
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-banner-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.cta-banner-text h2 {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: clamp(22px, 3vw, 30px);
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.cta-banner-text p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.cta-banner-actions {
+  display: flex;
+  gap: 14px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.cta-banner-btn-primary {
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: none;
+  background: #fff;
+  color: var(--highlight-2);
+  font-family: "Rethink Sans", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-banner-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.cta-banner-btn-outline {
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.5);
+  background: transparent;
+  color: #fff;
+  font-family: "Rethink Sans", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.cta-banner-btn-outline:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 760px) {
+  .cta-banner-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .cta-banner-actions {
+    width: 100%;
+  }
+
+  .cta-banner-btn-primary,
+  .cta-banner-btn-outline {
+    flex: 1;
+    text-align: center;
+  }
+}

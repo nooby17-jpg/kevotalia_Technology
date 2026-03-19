@@ -1,126 +1,363 @@
 .about-page {
   background: var(--bg);
   color: var(--text);
-  padding: 120px 5%;
+  padding: 120px 5% 60px;
   margin-top: 20px;
 }
 
-/* Two column */
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-}
-
-/* Stats */
-.about-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  text-align: center;
-  gap: 30px;
-}
-
-.about-stats h3 {
-  font-size: 32px;
+.about-eyebrow {
+  display: inline-block;
+  font-family: "Geist", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
   color: var(--highlight-1);
-}
-
-.about-stats p {
-  font-weight: 600;
-}
-
-/* Services */
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-}
-
-.service-card {
-  padding: 16px 18px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-weight: 600;
-}
-
-/* Lists */
-.why-list {
-  padding-left: 18px;
-}
-
-.why-list li {
   margin-bottom: 10px;
 }
 
-/* Industries */
+.about-section h2 {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 30px;
+  color: var(--heading-main);
+  margin-bottom: 20px;
+}
+
+/* =====================
+   WHO WE ARE — two-col
+===================== */
+.about-who {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-who-text h2 {
+  font-size: 30px;
+  margin-bottom: 16px;
+}
+
+.about-who-text p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--heading-sub);
+  margin-bottom: 12px;
+}
+
+.about-who-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-mini-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.about-mini-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--highlight-1);
+}
+
+.about-mini-card span {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.about-mini-card strong {
+  display: block;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 15px;
+  color: var(--heading-main);
+  margin-bottom: 6px;
+}
+
+.about-mini-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--heading-sub);
+  margin: 0;
+}
+
+/* =====================
+   STATS
+===================== */
+.about-stats-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.about-stat-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--highlight-1);
+}
+
+.stat-icon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.about-stat-card h3 {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--highlight-1);
+  font-family: "Rethink Sans", sans-serif;
+  margin-bottom: 4px;
+}
+
+.about-stat-card p {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--heading-sub);
+}
+
+/* =====================
+   SERVICES GRID
+===================== */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.service-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: "Geist", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--highlight-1);
+}
+
+.service-card-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* =====================
+   WHY CHOOSE US
+===================== */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.why-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--highlight-1);
+}
+
+.why-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.why-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--heading-sub);
+  margin: 0;
+}
+
+/* =====================
+   INDUSTRIES
+===================== */
 .industry-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: 16px;
 }
 
 .industry-chip {
-  padding: 10px 16px;
-  border-radius: 20px;
-  background: var(--highlight-4);
-  color: var(--highlight-3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 100px;
+  background: var(--nav-bg);
+  border: 1px solid var(--border);
+  color: var(--heading-main);
+  font-family: "Geist", sans-serif;
   font-weight: 600;
+  font-size: 14px;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
-/* Clients */
+.industry-chip:hover {
+  border-color: var(--highlight-1);
+  background: var(--highlight-4);
+  color: var(--highlight-3);
+}
+
+/* =====================
+   CLIENTS
+===================== */
 .client-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
 }
 
 .client-card {
-  padding: 14px;
+  padding: 16px;
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 10px;
+  font-family: "Geist", sans-serif;
   font-weight: 600;
+  font-size: 14px;
   text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-/* CTA */
+.client-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--highlight-1);
+  color: var(--highlight-1);
+}
+
+/* =====================
+   CTA BANNER
+===================== */
 .about-cta {
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--highlight-3), var(--highlight-2));
+  padding: 60px 40px;
   text-align: center;
-  padding: 60px 20px;
+  margin-top: 20px;
 }
 
-.about-cta h2 {
-  font-size: 32px;
+.cta-inner h2 {
+  font-size: 30px;
+  color: #fff;
   margin-bottom: 10px;
 }
 
-.cta-btn {
-  padding: 14px 28px;
-  border-radius: 6px;
-  border: none;
-  background: var(--highlight-1);
-  color: white;
-  font-weight: 600;
+.cta-inner p {
+  color: rgba(255,255,255,0.8);
+  font-size: 16px;
+  margin-bottom: 28px;
 }
 
-/* MOBILE */
+.cta-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 14px 32px;
+  border-radius: 10px;
+  border: none;
+  background: #fff;
+  color: var(--highlight-2);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Rethink Sans", sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.cta-btn-outline {
+  padding: 14px 32px;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.6);
+  background: transparent;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Rethink Sans", sans-serif;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.cta-btn-outline:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.1);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
 @media (max-width: 900px) {
-  .two-col {
+  .about-who {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
 
-  .about-stats {
+  .about-stats-section {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
   .about-page {
-    padding: 50px 6%;
+    padding: 100px 5% 40px;
   }
 
-  .about-hero h1 {
-    font-size: 30px;
+  .about-stats-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-cta {
+    padding: 40px 20px;
+    border-radius: 12px;
+  }
+
+  .cta-inner h2 {
+    font-size: 22px;
   }
 }
